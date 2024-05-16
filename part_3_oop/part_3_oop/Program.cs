@@ -7,7 +7,7 @@ namespace part_3_oop
     {
         static void Main(string[] args)
         {
-            CheckLinkedList();
+            //CheckLinkedList();
             CheckNumericalExpression();
 
 
@@ -25,7 +25,7 @@ namespace part_3_oop
 
         public static void CheckNumericalExpression()
         {
-            NumericalExpression test = new NumericalExpression(10897);
+            NumericalExpression test = new NumericalExpression(-90210);
             Console.WriteLine(test.ToString());
             Console.WriteLine(test.GetValue());
             Console.WriteLine(NumericalExpression.SumLetters(9));

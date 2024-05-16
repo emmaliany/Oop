@@ -25,10 +25,21 @@ namespace part_3_oop
             string[] tens = { "", "", "twenty ", "thirty ", "forty ", "fifty ", "sixty ", "seventy ", "eighty ", "ninety " };
             string[] jumps = { "", "thousand ", "million ", "billion " };
 
-            long number = _number;
+            long number = Math.Abs(_number);
+            int numLenght = number.ToString().Length;
             int counter = 1; // represent if current digit is ones (1), tens(2) or hundreds(3) digit
 
-            for (int i = 0; i < _number.ToString().Length; i++)
+            if (number > 999999999999)
+            {
+                throw new InvalidOperationException("number was out of range"); 
+            }
+
+            if (number == 0)
+            {
+                return "zero";
+            }
+
+            for (int i = 0; i < numLenght; i++)
             {
                 long digit = number % 10;
                 number /= 10;
@@ -67,6 +78,10 @@ namespace part_3_oop
                     }
                 }
                 counter++;
+            }
+            if (_number < 0)
+            {
+                numberInWords = "minus " + numberInWords;
             }
             return numberInWords;
         }
